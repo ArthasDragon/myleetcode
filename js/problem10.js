@@ -1,11 +1,11 @@
-import React, {Component} from 'react'
-import {observer} from 'mobx-react'
-
-@observer
-export default class extends Component {
-  render() {
-    return (
-      < div > login < /div>
-  )
+/**
+ * @param {string} s
+ * @param {string} p
+ * @return {boolean}
+ */
+var isMatch = function(s, p) {
+  if(/^*/.test(p) || /[*]{2,}/g.test(p)){
+    return false
   }
-}
+
+};
