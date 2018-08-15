@@ -7,7 +7,6 @@ const filePath = process.argv[2];
 // if (!/\/js\//.test(filePath)) {
 //   process.exit();
 // }
-console.log(filePath);
 //获取单行注释的正则
 const singleCommentReg = /\/\/.*/g;
 

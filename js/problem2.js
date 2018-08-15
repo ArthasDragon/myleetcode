@@ -14,6 +14,7 @@ var addTwoNumbers = function(l1, l2) {
   let list1 = l1;
   let list2 = l2;
   let current_list = null;
+  let ss;
 
   while (list1 || list2) {
     let v1 = (list1 && list1.val) || 0;
