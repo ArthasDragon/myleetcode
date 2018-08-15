@@ -33,3 +33,5 @@ var removeNthFromEnd = function(head, n) {
   list.splice(i, 1);
   return list[0] || [];
 };
+
+export default removeNthFromEnd;
