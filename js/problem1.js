@@ -4,10 +4,10 @@
  * @param {Number} target
  * @return {Array[Number]}
  */
-var twoSum = function(nums, target) {
-  var obj = {};
-  for (var i = 0, len = nums.length; i < len; ++i) {
-    var n = target - nums[i];
+let twoSum = function(nums, target) {
+  let obj = {};
+  for (let i = 0, len = nums.length; i < len; ++i) {
+    let n = target - nums[i];
     if (obj[n] !== undefined && obj[n] !== i) {
       return [i, obj[n]];
     }

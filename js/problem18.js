@@ -6,7 +6,7 @@
 
 //初始版本  记录两两之和   效率差   没考虑排序   蠢！！
 
-var fourOriginSum = function(nums, target) {
+let fourOriginSum = function(nums, target) {
   let result = [];
   //不是数组返回空
   if (!Array.isArray(nums)) {
@@ -67,7 +67,7 @@ var fourOriginSum = function(nums, target) {
  * @param {number} target
  * @return {number[][]}
  */
-var fourSum = function(nums, target) {
+let fourSum = function(nums, target) {
   let result = [];
   //不是数组或长度小于4返回空
   if (!Array.isArray(nums) || nums.length < 4) {

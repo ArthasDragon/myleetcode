@@ -2,7 +2,7 @@
  * @param {string} digits
  * @return {string[]}
  */
-var letterCombinations = function(digits) {
+let letterCombinations = function(digits) {
   let digs = digits;
   if (!digs.length) {
     return [];
@@ -19,7 +19,7 @@ var letterCombinations = function(digits) {
   return makezimus(dig_zis, digs);
 };
 
-var makezimus = function(dig_zis, digs) {
+let makezimus = function(dig_zis, digs) {
   if (digs.length === 1) {
     return dig_zis[digs[0]].split("");
   }

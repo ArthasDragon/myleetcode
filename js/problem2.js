@@ -8,7 +8,7 @@ function ListNode(val) {
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers = function(l1, l2) {
+let addTwoNumbers = function(l1, l2) {
   let result_list = null;
   let add = false;
   let list1 = l1;

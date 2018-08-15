@@ -10,7 +10,7 @@
  * @param {number} n
  * @return {ListNode}
  */
-var removeNthFromEnd = function(head, n) {
+let removeNthFromEnd = function(head, n) {
   //链表每一项将要组成的数组
   let list = [];
   //将链表一次放入数组list中
