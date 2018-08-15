@@ -87,6 +87,7 @@ var fourSum = function(nums, target) {
       while (left < right) {
         if (minus === numsArr[left] + numsArr[right]) {
           let res = [numsArr[i], numsArr[left], numsArr[right], numsArr[j]];
+          //result中有该数组则不加入result中
           if (
             !result.some(
               r =>
