@@ -3,6 +3,11 @@ const fs = require("fs");
 //文件路径
 const filePath = process.argv[2];
 
+//只对js文件夹下的文件进行校验
+if (!/\/js\//.test(filePath)) {
+  process.exit();
+}
+
 //获取单行注释的正则
 const singleCommentReg = /\/\/.*/g;
 
