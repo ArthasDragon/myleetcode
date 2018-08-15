@@ -4,9 +4,9 @@ const fs = require("fs");
 const filePath = process.argv[2];
 
 //只对js文件夹下的文件进行校验
-// if (!/\/js\//.test(filePath)) {
-//   process.exit();
-// }
+if (!/\/js\//.test(filePath)) {
+  process.exit();
+}
 //获取单行注释的正则
 const singleCommentReg = /\/\/.*/g;
 
@@ -21,7 +21,7 @@ const singleComment = data.match(singleCommentReg) || [];
 const multiComment = data.match(multiCommentReg) || [];
 
 //所有注释的字符创总长度
-const commontLength =
+const commentLength =
   singleComment.reduce((pre, next) => {
     return pre + next.length;
   }, 0) +
@@ -29,6 +29,6 @@ const commontLength =
     return pre + next.length;
   }, 0);
 
-if (commontLength < data.length / 20) {
+if (commentLength < data.length / 10) {
   throw new Error(`${filePath}：注释不能少于1/20`);
 }
