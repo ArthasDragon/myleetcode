@@ -4,7 +4,5 @@
  * @return {boolean}
  */
 let isMatch = function(s, p) {
-  if (/^*/.test(p) || /[*]{2,}/g.test(p)) {
-    return false;
-  }
+  return new RegExp("^" + p + "$").test(s);
 };
