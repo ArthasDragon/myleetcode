@@ -30,5 +30,5 @@ const commentLength =
   }, 0);
 
 if (commentLength < data.length / 10) {
-  throw new Error(`${filePath}：注释不能少于1/20`);
+  throw new Error(`${filePath}：注释不能少于1/10`);
 }
