@@ -13,6 +13,7 @@ var addTwoNumbers = function(l1, l2) {
   let add = false;
   let list1 = l1;
   let list2 = l2;
+  let list3;
   let current_list = null;
 
   while (list1 || list2) {
