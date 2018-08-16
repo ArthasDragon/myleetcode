@@ -18,7 +18,7 @@ let isMatch = function(string, pattern) {
    *
    * Example:
    *
-   *     a * . *
+   *     a * b. *
    *   - - - - - -
    * a - - - - - -
    * a - - - - - -
