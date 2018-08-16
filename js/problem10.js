@@ -3,14 +3,14 @@
  * @param {string} p
  * @return {boolean}
  */
-let isMatch = function(s, p) {
-  return new RegExp("^" + p + "$").test(s);
-};
+// let isMatch = function(s, p) {
+//   return new RegExp("^" + p + "$").test(s);
+// };
 
 const ZERO_OR_MORE_CHARS = "*";
 const ANY_CHAR = ".";
 
-var isMatch = function(string, pattern) {
+let isMatch = function(string, pattern) {
   /*
    * Let's initiate dynamic programming matrix for this string and pattern.
    * We will have pattern characters on top (as columns) and string characters
@@ -18,7 +18,7 @@ var isMatch = function(string, pattern) {
    *
    * Example:
    *
-   *     a * b . b
+   *     a * . *
    *   - - - - - -
    * a - - - - - -
    * a - - - - - -
@@ -133,6 +133,7 @@ var isMatch = function(string, pattern) {
       }
     }
   }
-
   return matchMatrix[string.length][pattern.length];
 };
+
+export default isMatch;
