@@ -29,11 +29,13 @@ let isValid = function(s) {
   let curStr = "";
   while ((curStr = sArr.shift())) {
     if (obj[curStr] > 0) {
+      //下一个数为正数但是负数数组中最后一项加上该正数不为0则返回false
       let preNegNum = negNums.pop();
       if (!preNegNum || preNegNum + obj[curStr] !== 0) {
         return false;
       }
     } else {
+      //负数则加入数组中
       negNums.push(obj[curStr]);
     }
   }
