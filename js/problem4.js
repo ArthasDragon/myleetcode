@@ -1,4 +1,5 @@
 /**
+ * Median of Two Sorted Arrays
  * @param {number[]} nums1
  * @param {number[]} nums2
  * @return {number}
@@ -23,6 +24,9 @@ let findMedianSortedArrays = function(nums1, nums2) {
 
   //合成后的有序数组中间两数相加/2即可
   let len = total_arr.length;
+  if (len === 0) {
+    return 0;
+  }
   if (len % 2 == 0) {
     numb = (total_arr[len / 2 - 1] + total_arr[len / 2]) / 2;
   } else {
