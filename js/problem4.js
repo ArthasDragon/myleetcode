@@ -6,6 +6,8 @@
 let findMedianSortedArrays = function(nums1, nums2) {
   let total_arr = [];
   let numb = null;
+
+  //两个有序数组合为一个有序数组
   while (nums1.length && nums2.length) {
     let value1 = nums1[0];
     let value2 = nums2[0];
@@ -18,6 +20,8 @@ let findMedianSortedArrays = function(nums1, nums2) {
     }
   }
   total_arr = total_arr.concat(nums1, nums2);
+
+  //合成后的有序数组中间两数相加/2即可
   let len = total_arr.length;
   if (len % 2 == 0) {
     numb = (total_arr[len / 2 - 1] + total_arr[len / 2]) / 2;
@@ -26,3 +30,5 @@ let findMedianSortedArrays = function(nums1, nums2) {
   }
   return numb;
 };
+
+export default findMedianSortedArrays;

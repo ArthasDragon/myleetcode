@@ -34,6 +34,7 @@ let addTwoNumbers = function(l1, l2) {
       sum = 0;
     }
 
+    //判断是否有初始的result_list  并给下一位赋值 cur移动到下一位
     if (result_list) {
       current_list.next = new ListNode(sum % 10);
       current_list = current_list.next;
@@ -44,6 +45,8 @@ let addTwoNumbers = function(l1, l2) {
     list1 = (list1 && list1.next) || null;
     list2 = (list2 && list2.next) || null;
   }
+
+  //list1和list2都加完后add为true则需要加一进位项1
   if (add) {
     current_list.next = new ListNode(1);
   }
