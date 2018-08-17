@@ -14,8 +14,8 @@
   },
   "lint-staged": {
     "*.js": [
-      "prettier-eslint --write",
       "node scripts/checkComment",
+      "prettier-eslint --write",
       "eslint",
       "git add"
     ]
