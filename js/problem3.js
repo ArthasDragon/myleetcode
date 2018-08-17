@@ -20,3 +20,29 @@ let lengthOfLongestSubstring = function(s) {
 };
 
 export default lengthOfLongestSubstring;
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+// var lengthOfLongestSubstring = function(s) {
+
+//   let substr = "";
+//   let maxLen = 0;
+
+//   for (let i = 0; i < s.length; i += 1) {
+//       const char = s.charAt(i);
+//       const oldIdx = substr.indexOf(char);
+
+//       if (oldIdx === -1) {
+//           substr += char;
+//       }
+//       else {
+//           substr = substr.slice(oldIdx+1) + char;
+//       }
+
+//       maxLen = Math.max(maxLen, substr.length);
+//   }
+
+//   return maxLen;
+// };
