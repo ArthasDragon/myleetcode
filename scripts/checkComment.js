@@ -29,6 +29,7 @@ const commentLength =
     return pre + next.length;
   }, 0);
 
+throw new Error(commentLength, data.length);
 if (commentLength < data.length / 10) {
   throw new Error(`${filePath}：注释不能少于1/10`);
 }

@@ -26,6 +26,7 @@ let addTwoNumbers = function(l1, l2) {
     } else {
       add = false;
     }
+
     if (sum == 9 && add) {
       add = true;
       sum = 0;
