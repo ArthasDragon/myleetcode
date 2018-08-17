@@ -2,6 +2,7 @@ const fs = require("fs");
 
 //文件路径
 const filePath = process.argv[2];
+console.log(filePath);
 
 //只对js文件夹下的文件进行校验
 if (!/\/js\//.test(filePath)) {
