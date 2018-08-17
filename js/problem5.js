@@ -62,3 +62,36 @@ let longestPalindrome = function(s) {
 };
 
 export default longestPalindrome;
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+// var longestPalindrome = function(s) {
+//   var array = s.split(""),
+//     left,
+//     right,
+//     arraySize = array.length,
+//     max = 0,
+//     start = 0;
+
+//   for (var i = 0; i < arraySize; i = i + 0.5) {
+//     left = Math.ceil(i - 1);
+//     right = Math.floor(i + 1);
+//     while (left >= 0 && right < arraySize) {
+//       if (array[left] === array[right]) {
+//         left--;
+//         right++;
+//       } else {
+//         break;
+//       }
+//     }
+
+//     if (right - left - 1 > max) {
+//       max = right - left - 1;
+//       start = left + 1;
+//     }
+//   }
+
+//   return s.slice(start, start + max);
+// };
