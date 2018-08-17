@@ -1,4 +1,5 @@
 /**
+ * Generate Parentheses
  * @param {number} n
  * @return {string[]}
  */
