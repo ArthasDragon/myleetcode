@@ -3,10 +3,11 @@ const fs = require("fs");
 //文件路径
 const filePath = process.argv[2];
 
-//只对js文件夹下的文件进行校验
-if (!/\/js\//.test(filePath)) {
+//不对__test__文件夹下的文件进行校验
+if (/__test__/.test(filePath)) {
   process.exit();
 }
+
 //获取单行注释的正则
 const singleCommentReg = /\/\/.*/g;
 
@@ -28,7 +29,6 @@ const commentLength =
   multiComment.reduce((pre, next) => {
     return pre + next.length;
   }, 0);
-
 if (commentLength < data.length / 10) {
   throw new Error(`${filePath}：注释不能少于1/10`);
 }
