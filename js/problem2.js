@@ -14,12 +14,13 @@ let addTwoNumbers = function(l1, l2) {
   let list1 = l1;
   let list2 = l2;
   let current_list = null;
-  let ss;
 
   while (list1 || list2) {
     let v1 = (list1 && list1.val) || 0;
     let v2 = (list2 && list2.val) || 0;
+
     let sum = add ? v1 + v2 + 1 : v1 + v2;
+
     if (sum >= 10) {
       add = true;
     } else {
@@ -29,6 +30,7 @@ let addTwoNumbers = function(l1, l2) {
       add = true;
       sum = 0;
     }
+
     if (result_list) {
       current_list.next = new ListNode(sum % 10);
       current_list = current_list.next;
@@ -44,3 +46,5 @@ let addTwoNumbers = function(l1, l2) {
   }
   return result_list;
 };
+
+export default addTwoNumbers;
