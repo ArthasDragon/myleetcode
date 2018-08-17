@@ -2,12 +2,12 @@ const fs = require("fs");
 
 //文件路径
 const filePath = process.argv[2];
-console.log(filePath);
 
 //只对js文件夹下的文件进行校验
-if (!/\/js\//.test(filePath)) {
+if (/__test__/.test(filePath)) {
   process.exit();
 }
+
 //获取单行注释的正则
 const singleCommentReg = /\/\/.*/g;
 
@@ -30,7 +30,7 @@ const commentLength =
     return pre + next.length;
   }, 0);
 
-throw new Error(commentLength, data.length);
+// throw new Error(commentLength, data.length);
 // if (commentLength < data.length / 10) {
 //   throw new Error(`${filePath}：注释不能少于1/10`);
 // }
