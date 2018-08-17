@@ -19,8 +19,11 @@ let addTwoNumbers = function(l1, l2) {
     let v1 = (list1 && list1.val) || 0;
     let v2 = (list2 && list2.val) || 0;
 
+    //add为true证明上一位之和大于10  需额外加一
+
     let sum = add ? v1 + v2 + 1 : v1 + v2;
 
+    //add ---- 该位数的和是否大于10
     if (sum >= 10) {
       add = true;
     } else {
