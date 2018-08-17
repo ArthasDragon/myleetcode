@@ -3,7 +3,7 @@ const fs = require("fs");
 //文件路径
 const filePath = process.argv[2];
 
-//只对js文件夹下的文件进行校验
+//不对__test__文件夹下的文件进行校验
 if (/__test__/.test(filePath)) {
   process.exit();
 }
