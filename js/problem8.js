@@ -1,4 +1,5 @@
 /**
+ * String to Integer
  * @param {string} str
  * @return {number}
  */
@@ -12,3 +13,5 @@ let myAtoi = function(str) {
         : Number(arr.join(""))
     : 0;
 };
+
+export default myAtoi;
