@@ -29,6 +29,6 @@ const commentLength =
   multiComment.reduce((pre, next) => {
     return pre + next.length;
   }, 0);
-// if (commentLength < data.length / 10) {
-//   throw new Error(`${filePath}：注释不能少于1/10`);
-// }
+if (commentLength < data.length / 10) {
+  throw new Error(`${filePath}：注释不能少于1/10`);
+}
