@@ -1,4 +1,5 @@
 /**
+ * Letter Combinations of a Phone Number
  * @param {string} digits
  * @return {string[]}
  */
@@ -35,3 +36,5 @@ let makezimus = function(dig_zis, digs) {
     })
   );
 };
+
+export default letterCombinations;
