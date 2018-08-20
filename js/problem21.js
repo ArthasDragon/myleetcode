@@ -1,11 +1,10 @@
-/*  Merge Two Sorted Lists */
-
 function ListNode(val) {
   this.val = val;
   this.next = null;
 }
 
 /**
+ * Merge Two Sorted Lists
  * @param {ListNode} l1
  * @param {ListNode} l2
  * @return {ListNode}

@@ -6,6 +6,7 @@
  * }
  */
 /**
+ * Remove Nth Node From End of List
  * @param {ListNode} head
  * @param {number} n
  * @return {ListNode}

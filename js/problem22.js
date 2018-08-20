@@ -62,3 +62,5 @@ let getArrayMultiply = function(arr1, arr2) {
 //   if (i > 0) recurse(cur + "(", i - 1, j, results);
 //   if (j >= 0 && j - 1 >= i) recurse(cur + ")", i, j - 1, results);
 // }
+
+export default generateParenthesis;
