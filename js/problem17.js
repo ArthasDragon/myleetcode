@@ -8,6 +8,7 @@ let letterCombinations = function(digits) {
   if (!digs.length) {
     return [];
   }
+  //每个电话按键对应英文
   let dig_zis = {};
   dig_zis["2"] = "abc";
   dig_zis["3"] = "def";

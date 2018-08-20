@@ -1,8 +1,9 @@
-// /**
-//  * @param {number[]} nums
-//  * @param {number} target
-//  * @return {number[][]}
-//  */
+/**
+ * 4Sum
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[][]}
+ */
 
 //初始版本  记录两两之和   效率差   没考虑排序   蠢！！
 
@@ -116,3 +117,5 @@ let fourSum = function(nums, target) {
   }
   return result;
 };
+
+export default fourSum;
