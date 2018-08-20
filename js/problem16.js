@@ -1,4 +1,5 @@
 /**
+ * 3Sum Closest
  * @param {number[]} nums
  * @param {number} target
  * @return {number}
@@ -30,3 +31,5 @@ let threeSumClosest = function(nums, target) {
 
   return near;
 };
+
+export default threeSumClosest;

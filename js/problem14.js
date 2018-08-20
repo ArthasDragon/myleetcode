@@ -1,4 +1,5 @@
 /**
+ * Longest Common Prefix
  * @param {string[]} strs
  * @return {string}
  */
@@ -14,3 +15,5 @@ let longestCommonPrefix = function(strs) {
   }
   return "";
 };
+
+export default longestCommonPrefix;
