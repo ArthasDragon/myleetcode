@@ -38,14 +38,14 @@ let searchRange = function(nums, target) {
     return result;
   }
 
-  while (left < right) {
+  while (left <= right) {
+    midIndex = Math.floor((left + right) / 2);
+
     //binary search util nums[midIndex] equals target
     if (nums[midIndex] < target) {
-      left = midIndex;
-      midIndex = Math.floor((left + right) / 2);
+      left = midIndex + 1;
     } else if (nums[midIndex] > target) {
-      right = midIndex;
-      midIndex = Math.floor((left + right) / 2);
+      right = midIndex - 1;
     } else {
       //nums[midIndex] equals target
       //traverse to find the first index and the last index of target, set value to result
@@ -56,15 +56,6 @@ let searchRange = function(nums, target) {
         left++;
       }
       result = [left, right];
-      return result;
-    }
-    if (right - left === 1) {
-      if (nums[left] === target) {
-        result = [left, left];
-      }
-      if (nums[right] === target) {
-        result = [right, right];
-      }
       return result;
     }
   }
