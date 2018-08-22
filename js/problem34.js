@@ -71,3 +71,42 @@ let searchRange = function(nums, target) {
   return result;
 };
 export default searchRange;
+
+/**
+ * other's better solution
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+// var searchRange = function(nums, target) {
+//   let left = 0;
+//   let right = nums.length;
+//   let result = [-1, -1];
+//   if (nums.length === 0) return result;
+
+//   // search for first target
+//   while (left < right) {
+//     let mid = left + Math.floor((right - left) / 2);
+
+//     if (nums[mid] > target || nums[mid] === target) right = mid;
+//     else left = mid + 1;
+//   }
+
+//   result[0] = nums[left] === target ? left : -1;
+
+//   if (left === nums.length || nums[left] !== target) return result;
+
+//   left = 0;
+//   right = nums.length;
+//   //search for last target
+//   while (left < right) {
+//     let mid = left + Math.floor((right - left) / 2);
+
+//     if (nums[mid] > target) right = mid;
+//     else left = mid + 1;
+//   }
+
+//   result[1] = left - 1;
+
+//   return result;
+// };
