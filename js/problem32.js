@@ -3,42 +3,88 @@
  * @param {string} s
  * @return {number}
  */
+
+//original  version
+// let longestValidParentheses = function(s) {
+//   if (!s.length) {
+//     return 0;
+//   }
+//   let len = s.length;
+//   let result = 0;
+//   for (let i = 0; i < len; ++i) {
+//     result = Math.max(result, getPartLongestValidParenthese(s.slice(i)));
+//   }
+//   return result;
+// };
+
+// /**
+//  * 取得s从头开始的最长合理字符串长度
+//  * @param {string} s
+//  */
+// let getPartLongestValidParenthese = function(s) {
+//   let leftNum = 0;
+//   let rightNum = 0;
+//   let maxLength = 0;
+//   let result = 0;
+//   let curIndex = 0;
+//   let curStr = s.charAt(curIndex);
+//   while (curStr && leftNum >= rightNum) {
+//     if (curStr === "(") {
+//       leftNum++;
+//     } else {
+//       rightNum++;
+//     }
+//     maxLength++;
+//     curIndex++;
+//     curStr = s.charAt(curIndex);
+//     if (leftNum === rightNum) {
+//       result = maxLength;
+//     }
+//   }
+//   return result;
+// };
+
+//secondary  version
 let longestValidParentheses = function(s) {
   if (!s.length) {
     return 0;
   }
-  let len = s.length;
-  let result = 0;
-  for (let i = 0; i < len; ++i) {
-    result = Math.max(result, getPartLongestValidParenthese(s.slice(i)));
-  }
-  return result;
-};
-
-/**
- * 取得s从头开始的最长合理字符串长度
- * @param {string} s
- */
-let getPartLongestValidParenthese = function(s) {
-  let leftNum = 0;
-  let rightNum = 0;
-  let maxLength = 0;
   let result = 0;
   let curIndex = 0;
-  let curStr = s.charAt(curIndex);
-  while (curStr && leftNum >= rightNum) {
-    if (curStr === "(") {
-      leftNum++;
+  let curChar = s.charAt(0);
+
+  let leftIndexList = [];
+  let completeLengthMap = {};
+  let curStartIndex = -1;
+  let lastStartIndex = -1;
+
+  //从头到尾遍历s
+  while (curChar) {
+    if (curChar === "(") {
+      leftIndexList.push(curIndex);
     } else {
-      rightNum++;
+      if (!leftIndexList.length) {
+        lastStartIndex = curIndex;
+      } else {
+        let curPartLen = curIndex - leftIndexList.pop() + 1;
+        if (leftIndexList.length) {
+          curStartIndex = leftIndexList[leftIndexList.length - 1];
+        } else {
+          curStartIndex = lastStartIndex;
+        }
+        if (completeLengthMap[curStartIndex]) {
+          completeLengthMap[curStartIndex] += curPartLen;
+        } else {
+          completeLengthMap[curStartIndex] = curPartLen;
+        }
+      }
     }
-    maxLength++;
-    curIndex++;
-    curStr = s.charAt(curIndex);
-    if (leftNum === rightNum) {
-      result = maxLength;
-    }
+    curChar = s.charAt(++curIndex);
   }
+  Object.values(completeLengthMap).forEach(item => {
+    result = Math.max(result, item);
+  });
+
   return result;
 };
 
