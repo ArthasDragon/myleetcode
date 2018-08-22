@@ -53,10 +53,10 @@ let longestValidParentheses = function(s) {
   let curIndex = 0;
   let curChar = s.charAt(0);
 
-  let leftIndexList = [];
-  let completeLengthMap = {};
-  let curStartIndex = -1;
-  let lastStartIndex = -1;
+  let leftIndexList = []; //临时左括号index记录
+  let completeLengthMap = {}; //各个起始位置开始有效字符串总长度
+  let curStartIndex = -1; //记录当前小块起始位置
+  let lastStartIndex = -1; //记录上个有效字符串整体起始位置
 
   //从头到尾遍历s
   while (curChar) {
