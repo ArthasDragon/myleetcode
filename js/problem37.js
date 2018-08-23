@@ -45,11 +45,6 @@ let solveSudoku = function(board) {
       }
     }
   }
-};
-
-let trySudoResolve = function(board, rows, cols, boxes) {
-  let hasChange = false;
-
   while (
     !(
       rows.every(row => row.len === 9) &&
@@ -57,7 +52,6 @@ let trySudoResolve = function(board, rows, cols, boxes) {
       boxes.every(box => box.len === 9)
     )
   ) {
-    hasChange = false;
     for (let i = 0; i < 9; i++) {
       for (let j = 0; j < 9; j++) {
         compareRow(board, i, j, boxes, rows, cols);
@@ -69,7 +63,6 @@ let trySudoResolve = function(board, rows, cols, boxes) {
           let tempArr = num.filter(
             item => !boxes[boxIndex][item] && !rows[i][item] && !cols[j][item]
           );
-          hasChange = hasChange || num.every(n => tempArr.includes(n));
           board[i][j] = tempArr.length === 1 ? tempArr[0] : tempArr;
           if (tempArr.length === 1) {
             boxes[boxIndex][tempArr[0]] = rows[i][tempArr[0]] = cols[j][
@@ -82,44 +75,7 @@ let trySudoResolve = function(board, rows, cols, boxes) {
         }
       }
     }
-    if (!hasChange) {
-      if (isValidSudoku(board)) {
-        for (let i = 0; i < 9; i++) {
-          for (let j = 0; j < 9; j++) {
-            let num = board[i][j];
-            if (Array.isArray(num)) {
-              num.forEach(item => {
-                board[i][j] = item;
-                trySudoResolve(board, rows, cols, boxes);
-              });
-            }
-          }
-        }
-      } else {
-        return false;
-      }
-    }
   }
-};
-
-let isValidSudoku = function(board) {
-  let rows = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
-  let cols = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
-  let boxes = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
-  for (let i = 0; i < 9; i++) {
-    for (let j = 0; j < 9; j++) {
-      let num = board[i][j];
-      let boxIndex = Math.floor(i / 3) * 3 + Math.floor(j / 3);
-      if (!Array.isArray(num)) {
-        if (boxes[boxIndex][num] || rows[i][num] || cols[j][num]) {
-          return false;
-        }
-        boxes[boxIndex][num] = rows[i][num] = cols[j][num] = true;
-      }
-    }
-  }
-
-  return true;
 };
 
 let compareRow = function(board, i, j, boxes, rows, cols) {
