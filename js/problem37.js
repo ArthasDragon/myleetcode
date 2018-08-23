@@ -58,8 +58,11 @@ var solveSudoku = function(board) {
     }
     let [r, c] = visit[0];
     let t = [Math.floor(r / 3), Math.floor(c / 3)];
+    let len = cloneBoard[[r, c]].length;
 
-    cloneBoard[[r, c]].forEach(dig => {
+    for (let i = 0; i < len; i++) {
+      let dig = cloneBoard[[r, c]][i];
+
       dig = String(dig);
       if (!rows[r].has(dig) && !cols[c].has(dig) && !triples[t].has(dig)) {
         board[r][c] = dig;
@@ -78,25 +81,14 @@ var solveSudoku = function(board) {
           visit.unshift([r, c]);
         }
       }
-    });
+    }
     return false;
   }
   dfs();
+  return board;
 };
 
-solveSudoku([
-  [".", ".", "9", "7", "4", "8", ".", ".", "."],
-  ["7", ".", ".", ".", ".", ".", ".", ".", "."],
-  [".", "2", ".", "1", ".", "9", ".", ".", "."],
-  [".", ".", "7", ".", ".", ".", "2", "4", "."],
-  [".", "6", "4", ".", "1", ".", "5", "9", "."],
-  [".", "9", "8", ".", ".", ".", "3", ".", "."],
-  [".", ".", ".", "8", ".", "3", ".", "2", "."],
-  [".", ".", ".", ".", ".", ".", ".", ".", "6"],
-  [".", ".", ".", "2", "7", "5", "9", ".", "."]
-]);
-
-// export default solveSudoku;
+export default solveSudoku;
 
 //other's solution
 
