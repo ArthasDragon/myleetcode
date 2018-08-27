@@ -5,3 +5,5 @@
  * @return {number[][]}
  */
 let combinationSum = function(candidates, target) {};
+
+export default combinationSum;
