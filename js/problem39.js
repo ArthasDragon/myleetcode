@@ -10,7 +10,7 @@ let combinationSum = function(candidates, target) {
   candidates.sort((a, b) => a - b);
 
   function calc(curNumsArr, curSum, curIndex) {
-    for (let i = curIndex; i <= len; ++i) {
+    for (let i = curIndex; i < len; ++i) {
       let curValue = candidates[i];
       let sum = curSum + curValue;
       if (sum < target) {
