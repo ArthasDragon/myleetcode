@@ -28,26 +28,47 @@
 // };
 
 //version 2
+// let jump = function(nums) {
+//   if (nums.length === 1) {
+//     return 0;
+//   }
+//   let result = 1;
+//   let startIndex = 0;
+//   let lastEndIndex = 0;
+//   while (lastEndIndex + nums[lastEndIndex] < nums.length - 1) {
+//     let nextStartIndex = startIndex;
+//     let max = startIndex;
+//     for (let i = startIndex + 1; i <= lastEndIndex + nums[lastEndIndex]; i++) {
+//       if (i + nums[i] > max) {
+//         max = i + nums[i];
+//         nextStartIndex = i;
+//       }
+//     }
+//     startIndex = lastEndIndex + nums[lastEndIndex];
+//     lastEndIndex = nextStartIndex;
+//     result++;
+//   }
+//   return result;
+// };
+
+//version 3
 let jump = function(nums) {
   if (nums.length === 1) {
     return 0;
   }
   let result = 1;
   let startIndex = 0;
-  let lastEndIndex = 0;
-  while (lastEndIndex + nums[lastEndIndex] < nums.length - 1) {
-    let nextStartIndex = startIndex;
-    let max = startIndex;
-    for (let i = startIndex + 1; i <= lastEndIndex + nums[lastEndIndex]; i++) {
-      if (i + nums[i] > max) {
-        max = i + nums[i];
-        nextStartIndex = i;
-      }
+  let endIndex = startIndex + nums[startIndex];
+  while (endIndex < nums.length - 1) {
+    let tempIndex = endIndex;
+    for (let i = startIndex + 1; i <= endIndex; i++) {
+      tempIndex = Math.max(tempIndex, i + nums[i]);
     }
-    startIndex = lastEndIndex + nums[lastEndIndex];
-    lastEndIndex = nextStartIndex;
+    startIndex = endIndex;
+    endIndex = tempIndex;
     result++;
   }
+
   return result;
 };
 
