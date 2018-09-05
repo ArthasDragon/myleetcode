@@ -24,3 +24,27 @@ let permute = function(nums) {
 };
 
 export default permute;
+
+//internet better solution
+// let permute = function(nums) {
+//   let list = [];
+//   let templist = [];
+
+//   let backtrack = function(list, tempList, nums){
+//       if(tempList.length === nums.length) {
+//           let newList = tempList.slice()
+//           list.push(newList);
+//       }
+
+//       for(let i = 0; i < nums.length; i++) {
+//           if(tempList.includes(nums[i])) continue; // element already exists, skip
+//           tempList.push(nums[i]);
+//           backtrack(list, tempList, nums);
+//           tempList.splice(tempList.length - 1, 1);
+//       }
+//   }
+
+//  backtrack(list, templist, nums);
+
+//  return list;
+// }
