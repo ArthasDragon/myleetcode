@@ -50,6 +50,56 @@
 //   return result;
 // };
 
-let trap = function(height) {};
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var trap = function(height) {
+  // 从大到小排序
+  let sortHeight = sortArr(height);
+
+  let total = 0;
+  let heightIndexMap = {};
+  //  将每个高度的序号列表放到map中
+  height.forEach((item, index) => {
+    total += item;
+    if (heightIndexMap[item]) {
+      heightIndexMap[item].push(index);
+    } else {
+      heightIndexMap[item] = [index];
+    }
+  });
+
+  let start = -1;
+  let end = -1;
+  let area = 0;
+  // 计算总面积
+  sortHeight.forEach(item => {
+    let itemSortIndexArr = sortArr(heightIndexMap[item]);
+    let len = itemSortIndexArr.length;
+    let tempStart = itemSortIndexArr[len - 1];
+    let tempEnd = itemSortIndexArr[0];
+
+    if (start === -1) {
+      start = tempStart;
+      end = tempEnd;
+      area += item * (end - start + 1);
+    } else {
+      if (tempStart < start) {
+        area += item * (start - tempStart);
+        start = tempStart;
+      }
+      if (tempEnd > end) {
+        area += item * (tempEnd - end);
+        end = tempEnd;
+      }
+    }
+  });
+
+  // 总面积-总和
+  return area - total;
+};
+
+const sortArr = arr => arr.sort((a, b) => b - a);
 
 export default trap;
