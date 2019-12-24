@@ -26,6 +26,6 @@ test("Trapping Rain Water", () => {
       215,
       5468
     ])
-  ).toBe(6313);
+  ).toBe(5313);
   expect(trap(testMock)).toBe(174801674);
 });

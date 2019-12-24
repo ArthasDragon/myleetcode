@@ -56,7 +56,6 @@
  */
 var trap = function(height) {
   // 从大到小排序
-  let sortHeight = [...new Set(sortArr(height))];
 
   let total = 0;
   let heightIndexMap = {};
@@ -69,6 +68,7 @@ var trap = function(height) {
       heightIndexMap[item] = [index];
     }
   });
+  let sortHeight = [...new Set(sortArr(height))];
 
   let start = -1;
   let end = -1;
@@ -76,12 +76,10 @@ var trap = function(height) {
   // 计算总面积
   sortHeight.forEach(item => {
     let itemSortIndexArr = sortArr(heightIndexMap[item]);
-    console.log(itemSortIndexArr);
     let len = itemSortIndexArr.length;
     let tempStart = itemSortIndexArr[len - 1];
     let tempEnd = itemSortIndexArr[0];
 
-    console.log(start, end, tempStart, tempEnd);
     if (start === -1) {
       start = tempStart;
       end = tempEnd;
@@ -89,46 +87,58 @@ var trap = function(height) {
     } else {
       if (tempStart < start) {
         area += item * (start - tempStart);
+
         start = tempStart;
       }
       if (tempEnd > end) {
         area += item * (tempEnd - end);
+
         end = tempEnd;
       }
     }
-    console.log(area);
   });
 
-  console.log(area, total);
   // 总面积-总和
   return area - total;
 };
 
 const sortArr = arr => arr.sort((a, b) => b - a);
 
-trap([
-  0,
-  1,
-  0,
-  2,
-  1,
-  0,
-  1,
-  3,
-  2,
-  1,
-  2,
-  1,
-  50,
-  1,
-  56,
-  3215,
-  651321,
-  6451,
-  215,
-  5468,
-  2,
-  1,
-  10
-]);
-// export default trap;
+export default trap;
+
+// internet better solution
+
+// /**
+//  * @param {number[]} height
+//  * @return {number}
+//  */
+// var trap = function(height) {
+//   const length = height.length
+//   if (length === 0) return 0
+//   let left = 0
+//   let right = length - 1
+//   let floor = 0
+//   let result = 0
+//   while (true) {
+//       if (left >= right) {
+//           result -= floor
+//           break
+//       }
+//       let leftValue = height[left]
+//       if (leftValue <= floor) {
+//           result -= leftValue
+//           left ++
+//           continue
+//       }
+//       let rightValue = height[right]
+//       if (rightValue <= floor) {
+//           result -= rightValue
+//           right --
+//           continue
+//       }
+//       let nextFloor = Math.min(leftValue, rightValue)
+//       result += (right - left + 1) * (nextFloor - floor)
+//       floor = nextFloor
+//   }
+//   return result
+// };
