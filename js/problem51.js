@@ -75,3 +75,47 @@ var solveNQueens = function(n) {
     return arr;
   });
 };
+
+/**
+ * @param {number} n
+ * @return {string[][]}
+ */
+
+// online other better solution
+// var solveNQueens = function(n) {
+//   let result = new Array(n);
+//  let results = [];
+//  let dfs = (row,column) => {// 对特定行列进行验证，向上每行依次排查
+//      let leftColumn =  column-1;
+//      let rightColumn = column+1;
+//      for(let i = row - 1;i >= 0;i--){
+//          if(result[i] == column){
+//              return false;
+//          }
+//          if(leftColumn >= 0 && result[i] == leftColumn){
+//              return false;
+//          }
+//          if(rightColumn < n && result[i] == rightColumn){
+//              return false;
+//          }
+//          leftColumn--;
+//          rightColumn++;
+//      }
+//      return true;
+//  }
+//  let Nqueens = (row) => {
+//      if(row == n){//到n证明每一行都有Q放置  将当前结果result存入results中
+//          results.push(result.map(c=>'.'.repeat(c)+'Q'+'.'.repeat(n-1-c)));
+//          return;
+//      }
+//      for(let j = 0;j < n;j++){
+//          if(dfs(row,j)){//对当前行的每一列进行验证  如果可放Q则放置并进行下一列
+//              result[row] = j;
+//              Nqueens(row+1)
+//          }
+//      }
+//  }
+//  Nqueens(0);
+//  return results;
+
+// };
