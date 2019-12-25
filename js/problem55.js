@@ -23,3 +23,38 @@ var canJump = function(nums) {
 };
 
 export default canJump;
+
+// internet better solutions
+
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+// var canJump = function(nums) {
+//     var lenPoint = nums.length-1;
+//     var leftPos =lenPoint;
+//     for(var left = lenPoint;left>=0;left--){
+//         if(nums[left]+left >= leftPos){
+//             leftPos = left;
+//         }
+//     }
+//     return leftPos == 0;
+// };
+
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+// var canJump = function(nums) {
+//     var canJumpMax = 0;
+//     var len = nums.length;
+//     for(var i = 0;i<len;i++){
+//         if(i > canJumpMax){
+//          return false;
+//         }
+//         canJumpMax = Math.max(canJumpMax,i+nums[i]);
+//         if(canJumpMax >= len-1){
+//             return true;
+//         }
+//     }
+// };
