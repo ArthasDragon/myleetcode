@@ -55,3 +55,21 @@ export default uniquePaths;
 //   return dp[m-1][n-1];
 
 // };
+
+// 优化空间复杂度
+// 思路：由于是每一行逐行向下 所以只需要维持上一行的状态即可
+
+/**
+ * @param {number} m
+ * @param {number} n
+ * @return {number}
+ */
+// var uniquePaths = function(m, n) {
+//   var cur = new Array(n).fill(1);
+//   for(var i = 1;i < m;i++){
+//       for(var r = 1;r < n;r++){
+//           cur[r] = cur[r-1]+cur[r];
+//       }
+//   }
+//   return cur[n-1];
+// };
