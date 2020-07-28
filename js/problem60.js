@@ -48,7 +48,7 @@ export default getPermutation;
 //   const unused = Array.from({ length: n }, (_, i) => i + 1);
 //   let x = unused.reduce((a, b) => a * b);
 //   let str = "";
-// 初始条件k--很关键
+// 初始条件k--很关键  康拓展开！！！！！
 //   for (k--; n > 0; n--) {
 //       x /= n;
 //       str += unused.splice(Math.floor(k / x), 1)[0];
