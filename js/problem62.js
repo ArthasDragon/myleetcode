@@ -28,6 +28,7 @@ var uniquePaths = function(m, n) {
   return countMap["1-1"];
 };
 
+export default uniquePaths;
 // internet better solution
 /**
  * @param {number} m
