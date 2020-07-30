@@ -6,6 +6,7 @@
 // internet solution
 
 // 思路： 有限状态机
+// https://leetcode-cn.com/problems/valid-number/solution/biao-qu-dong-fa-by-user8973/
 var isNumber = function(s) {
   let state = 0,
     // 最终状态对应结果true or false
