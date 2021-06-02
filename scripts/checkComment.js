@@ -4,7 +4,7 @@ const fs = require("fs");
 const filePath = process.argv[2];
 
 //不对__test__文件夹下的文件进行校验
-if (/__test__/.test(filePath)) {
+if (/__tests__/.test(filePath)) {
   process.exit();
 }
 
