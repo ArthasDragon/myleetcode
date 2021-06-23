@@ -38,6 +38,7 @@ const numDecodings = function(s) {
         total: 0
       };
       // i不是0的情况
+      // 考虑最后剩一位数和两位数的情况相加即是当前的编码数
       if (cur != 0) {
         totalNumMap[i].total += totalNumMap[i - 1].total;
         let twVal = totalNumMap[i - 1].value * 10 + totalNumMap[i].value;
